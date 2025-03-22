@@ -1,6 +1,14 @@
 from datetime import datetime
 from os import system
 
+"""
+Este script é um sistema bancário simples escrito em Python. 
+Ele permite ao usuário realizar operações básicas como depositar dinheiro, 
+sacar dinheiro e visualizar o extrato da conta.
+
+Esse script foi feito com base no projeto do BootCamp da Suzano/DIO.
+"""
+
 saldo = 0
 extrato = []
 
@@ -9,6 +17,17 @@ quantidade_saques = 3
 
 
 def depositar(valor:float):
+    """Função para depositar
+
+    Args:
+        valor (float): valor para deposito
+
+    Returns:
+        string: status para exibição
+        
+    Atividade:
+        faz o append de informações no extrato
+    """
     global saldo, extrato
     if (valor <= 0):
         return "Digite um valor VÁLIDO"
@@ -18,7 +37,18 @@ def depositar(valor:float):
         return "Depósito efetuado com SUCESSO!"
 
     
-def saque(valor:float):
+def sacar(valor:float):
+    """ Função para sacar
+
+    Args:
+        valor (float): valor para saque
+
+    Returns:
+        string: status para exibição
+        
+    Atividade:
+        faz o append de informações no extrato
+    """
     global saldo, quantidade_saques, extrato
     if quantidade_saques != 0:
         if valor <= 0:
@@ -39,6 +69,12 @@ def saque(valor:float):
 
 
 def mostra_extrato():
+    """ Função para mostrar extrato
+    
+    Atividade: 
+        percorre lista de extrato exibindo-os
+        mostra informações sobre conta
+    """
     global extrato, saldo, quantidade_saques
     if extrato:
         for info in extrato:
@@ -86,7 +122,7 @@ while True:
     elif acao == "2":
         print("SAQUE".center(40, " "), end="\n\n")
         valor = float(input("Digite um valor: "))
-        ret_saque = saque(valor=valor)
+        ret_saque = sacar(valor=valor)
         print(ret_saque.center(40, " "), end="\n\n")
     elif acao == "3":
         print("EXTRATO BANCÁRIO".center(40, " "), "\n\n")
