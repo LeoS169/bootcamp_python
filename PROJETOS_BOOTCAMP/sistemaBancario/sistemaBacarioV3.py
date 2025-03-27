@@ -281,7 +281,13 @@ def listar_contas():
         print("Nenhuma conta cadastrada!")
     
     
-def criar_PessoaFisica(endereco:str, nome:str, cpf:int, dia_nas, mes_nas, ano_nas):
+def criar_PessoaFisica(endereco:str, 
+        nome:str, 
+        cpf:int, 
+        dia_nas:int, 
+        mes_nas:int, 
+        ano_nas:int
+    ):
     """ Função para criar Cliente > PessoaFisica
 
     Args:
@@ -368,10 +374,7 @@ def fazer_deposito(cpf:int, numero_conta:int, valor:float) -> str:
     
 def exibir_extrato(numero:int):
     global contas
-    if conta_existe(
-        numero=numero,
-        contas=contas
-    ):
+    if conta_existe(numero, contas):
         conta = retorna_conta(
             numero=numero,
             contas=contas
